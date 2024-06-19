@@ -416,7 +416,7 @@ class GeminiTempService {
         final content = [Content.text(prompt)];
         final model = GenerativeModel(
           model: &#39;gemini-1.5-pro&#39;, 
-          apiKey: &#39;AIzaSyCkNigEIXtmkKrGueKNvgMLIyo1WBzCqRs&#39;,
+          apiKey: &#39;YOUR_API_KEY&#39;, // &lt;= replace with your key
           generationConfig: GenerationConfig(
             responseMimeType: &#39;application/json&#39;,
             responseSchema: Schema.object(properties: {
@@ -900,6 +900,16 @@ const GeminiTempSelector(),
   <script src="https://storage.googleapis.com/codelab-elements-tmp/prettify.js"></script>
   <script src="https://storage.googleapis.com/codelab-elements-tmp/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      $('#done').removeAttr('href');
+      $('#done').css('cursor', 'pointer');
+      $('#done').click(function () { 
+        window.location.href = 'https://romanjustcodes.web.app/#/workshops';
+      });
+    });
+  </script>
 
 </body>
 </html>
