@@ -434,9 +434,8 @@ class GeminiTempService {
         var geminiResponse = GeminiTempResponse.fromJSON(jsonResponse);
         return geminiResponse;
 
-    } on Exception catch(e) {
-      debugPrint(e.toString());
-      throw();
+    } on Exception {
+      rethrow;
     }
   }
 }
