@@ -97,7 +97,7 @@
       <google-codelab-step label="Optional: Use Project IDX" duration="0">
         <p>If you don&#39;t want to set up your machine with Flutter at the moment, you can use Project IDX (https://idx.dev/), an entirely web-based workspace for full-stack application development, complete with the latest generative AI from Gemini, and full-fidelity app previews, powered by cloud emulators.</p>
 <p class="image-container"><img alt="App" src="img/e6a440ddc58873a7.png"></p>
-<p>Make sure that after setting up your project on IDX, install the required dependencies for this project:</p>
+<p>Make sure that after setting up your project on IDX, install the required dependencies for this project, by opening a new Terminal (CTRL + `) or in Project IDX, go to the hamburger menu, then <strong>Terminal &gt; New Terminal</strong> and run the following command:</p>
 <pre><code language="language-dart" class="language-dart">flutter pub add flutter_riverpod google_generative_ai
 
 </code></pre>
@@ -133,7 +133,11 @@
 <p>Navigate to your project, and start by removing everything from your <strong>main.dart</strong> file.</p>
 <h2 is-upgraded>For simplicity and for the sake of this codelab, we&#39;ll concentrate on only the <strong>main.dart</strong> file so all widgets will be added here, but as a best practice each widget should live within its own file - food for thought!</h2>
 <p><strong>NOTE</strong>: as we assemble the app, you may get temporary errors - do not fret! This is part of the building progress and things should fall into place as we make progress. Keep pushing through!</p>
-<p>Proceed to add all dependencies required by this project, and the root app widget, named <strong>GeminiTempApp</strong>:</p>
+<p>Proceed to add all dependencies required by this project, first making sure you&#39;ve add the packages through the terminal, as such:</p>
+<pre><code language="language-dart" class="language-dart">flutter pub add flutter_riverpod google_generative_ai
+
+</code></pre>
+<p>then add the imports along with the root app widget, named <strong>GeminiTempApp</strong>:</p>
 <pre><code language="language-dart" class="language-dart">// dependencies
 import &#39;dart:convert&#39;;
 import &#39;package:flutter/material.dart&#39;;
@@ -434,9 +438,8 @@ class GeminiTempService {
         var geminiResponse = GeminiTempResponse.fromJSON(jsonResponse);
         return geminiResponse;
 
-    } on Exception catch(e) {
-      debugPrint(e.toString());
-      throw();
+    } on Exception {
+      rethrow;
     }
   }
 }
